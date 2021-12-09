@@ -42,7 +42,7 @@ class Quiz:
         print(self.user_preferences)
 
 
-user = Quiz()
+user_id = Quiz()
 
 
 #W/out based on quiz
