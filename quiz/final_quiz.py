@@ -1,5 +1,5 @@
 from generate_random_workout import get_random_workout # Delia's random workout
-from user_QA_and_workouts import user_id # assigned this object to the quiz class to call its methods
+from user_questions_and_answers import user_id # assigned this object to the quiz class to call its methods
 from views import main # Yasmine's results function
 
 # User decides whether they want a random workout or input their preferences
