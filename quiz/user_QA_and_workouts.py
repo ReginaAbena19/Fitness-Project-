@@ -46,11 +46,16 @@ user_id = Quiz()
 
 
 #W/out based on quiz
+from flask import Blueprint, render_template, request
 import os
 import googleapiclient.discovery
+import random
+
+views = Blueprint('views', __name__)
 
 
-def quiz_based_workout():
+@views.route('/results', methods=['GET', 'POST'])
+def main():
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
     api_service_name = "youtube"
     api_version = "v3"
@@ -59,19 +64,27 @@ def quiz_based_workout():
         api_service_name, api_version, developerKey=DEVELOPER_KEY)
     requests = youtube.search().list(
         part="snippet",
-        maxResults=3,
-        q=user.get_results(),
+        maxResults=100,
+        q=user_id.get_results(),
     )
     response = requests.execute()
+
     items = response["items"]
+    randomise_results = random.sample(items, 3)
+
+    titles = []
 
     videos = []
-    for item in items:
+
+    for item in randomise_results:
         videos.append(item['id']['videoId'])
+        titles.append(item['snippet']['title'])
 
     print(videos)
+    print(titles)
 
-    return render_template('results.html', len=len(videos), videos=videos)
+    return render_template('results.html', len=len(videos), videos=videos, titles=titles)
 
-
+if __name__ == "__main__":
+    main()
 
