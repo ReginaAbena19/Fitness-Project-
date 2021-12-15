@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Results page{% endblock %}
+
+{% block content %}
+<h1>See your videos below</h1>
+
+<html>
+<head>
+    <title>For loop in Flask</title>
+</head>
+<body>
+
+<ol>
+    {%for i in range(0, len)%}
+    <li>
+        <h2>{{videos[i]["snippet"]["title"]}}</h2>
+        <p>{{videos[i]["snippet"]["publishedAt"]}}</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{videos[i]['id']['videoId']}}" frameborder="0" allowfullscreen></iframe>
+    </li>
+{%endfor%}
+
+</ol>
+
+</body>
+</html>
+
+{% endblock %}
+
+

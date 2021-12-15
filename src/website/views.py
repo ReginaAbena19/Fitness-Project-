@@ -1,16 +1,14 @@
 from flask import Blueprint, render_template
+from src.youtube import youtube_utils
 
 views = Blueprint('views', __name__)
-videos = ["glxrwC9zsHY",
-          "oo9s2zg_nC4",
-          "-b2lNLq3EaA"]
-
 
 @views.route('/')
 def home():
     return render_template("home.html")
 
 
-@views.route('/results')
-def results():
+@views.route('/results/<workout_type>')
+def results(workout_type):
+    videos = youtube_utils.get_workout_results_from_youtube(workout_type)
     return render_template("results.html", len=len(videos), videos=videos)
