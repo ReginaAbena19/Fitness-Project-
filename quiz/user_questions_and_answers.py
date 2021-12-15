@@ -19,8 +19,8 @@ class Quiz:
 
     def body_parts_training(self):
         user_question2_answer = input( "What do you want to train today? Options are: A. Legs\n B. Arms \n, C. Abs \n, "
-                                       "D. Back\n ")
-        body_training = ["A. Legs", "B. Arms", "C. Abs", "D. Back"]
+                                       "D. Back\n E. Shoulders\n, F. Glutes\n")
+        body_training = ["A. Legs", "B. Arms", "C. Abs", "D. Back", "E. Shoulders", "F. Glutes"]
         if user_question2_answer in body_training:
             self.user_preferences.append(user_question2_answer)
         else:
