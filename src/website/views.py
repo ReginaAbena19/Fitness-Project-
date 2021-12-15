@@ -8,7 +8,7 @@ def home():
     return render_template("home.html")
 
 
-@views.route('/results')
-def results():
-    videos2 = youtube_utils.get_workout_results_from_youtube()
-    return render_template("results.html", len=len(videos2), videos=videos2)
+@views.route('/results/<workout_type>')
+def results(workout_type):
+    videos = youtube_utils.get_workout_results_from_youtube(workout_type)
+    return render_template("results.html", len=len(videos), videos=videos)

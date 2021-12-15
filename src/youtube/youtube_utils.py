@@ -2,7 +2,7 @@ import os
 import googleapiclient.discovery
 import random
 
-def get_workout_results_from_youtube():
+def get_workout_results_from_youtube(workout_type):
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
     api_service_name = "youtube"
     api_version = "v3"
@@ -15,7 +15,7 @@ def get_workout_results_from_youtube():
     requests = youtube.search().list(
         part="snippet",
         maxResults=100,
-        q="leg strength workout",
+        q=workout_type
     )
     response = requests.execute()
 
