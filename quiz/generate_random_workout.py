@@ -26,7 +26,7 @@ def get_random_workout():
     random_video_title = randon_video["snippet"]["title"]
     
     print(random_video_id)
-    print{random_video_title)
+    print(random_video_title)
 
     return render_template('results.html', len=len(random_video_id), videos=random_video_id, title=random_video_title)
 
