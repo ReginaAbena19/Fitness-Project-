@@ -7,7 +7,7 @@ from written_workout import get_written_workout # Yasmine's Exercise DB function
 
 
 def main():
-    first_move = input("Hello!, What would you like to do today? Options are: A) Random Workout\n B) Specific Workout?"
+    first_move = input("Hello!, What would you like to do today? Options are: A) Random Workout\n B) Specific Workout\n C) Written Workout?"
                        "\n Answer:")
     if first_move == "A" or first_move == "Random Workout":
         get_random_workout()
@@ -20,7 +20,7 @@ def main():
         user_id.exercise_goals()
         user_id.body_parts_training()
         user_id.workout_location()
-        written_workout()
+        written_workout() # calling Yasmine's Exercise DB results function
     else:
         print("Please pick a valid option.")
 
