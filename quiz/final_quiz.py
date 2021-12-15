@@ -1,6 +1,7 @@
 from generate_random_workout import get_random_workout # Delia's random workout
 from user_questions_and_answers import user_id # assigned this object to the quiz class to call its methods
-from views import main # Yasmine's results function
+from youtube_utils import get_workout_results_from_youtube # Yasmine's results function
+from written_workout import get_written_workout # Yasmine's Exercise DB function
 
 # User decides whether they want a random workout or input their preferences
 
@@ -14,7 +15,12 @@ def main():
         user_id.exercise_goals()
         user_id.body_parts_training()
         user_id.workout_location()
-        main() # calling Yasmine's video results function
+        get_workout_results_from_youtube() # calling Yasmine's video results function
+    elif first_move == "C" or first_move == "Written Workout":
+        user_id.exercise_goals()
+        user_id.body_parts_training()
+        user_id.workout_location()
+        written_workout()
     else:
         print("Please pick a valid option.")
 
