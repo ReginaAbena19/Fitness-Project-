@@ -10,10 +10,12 @@
 <body>
 
 <ol>
-<!-- For loop logic of jinja template -->
-{%for i in range(0, len)%}
-    <li>{{videos[i]}}</li>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{videos[i]}}" frameborder="0" allowfullscreen></iframe>
+    {%for i in range(0, len)%}
+    <li>
+        <h2>{{videos[i]["snippet"]["title"]}}</h2>
+        <p>{{videos[i]["snippet"]["publishedAt"]}}</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{videos[i]['id']['videoId']}}" frameborder="0" allowfullscreen></iframe>
+    </li>
 {%endfor%}
 
 </ol>
