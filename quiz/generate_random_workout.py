@@ -23,7 +23,7 @@ def get_random_workout():
 
     random_video = random.choice(items)
     random_video_id = random_video["id"]["videoId"]
-    random_video_title = randon_video["snippet"]["title"]
+    random_video_title = random_video["snippet"]["title"]
     
     print(random_video_id)
     print(random_video_title)
