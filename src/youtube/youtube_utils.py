@@ -23,3 +23,4 @@ def get_workout_results_from_youtube(workout_type):
     randomise_results = random.sample(items, 3)
 
     return randomise_results
+

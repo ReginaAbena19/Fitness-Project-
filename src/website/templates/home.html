@@ -1,3 +1,63 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}
 
-{% block content %}This is the homepage{% endblock %}
+{% block content %}
+<div class="text-center mt-4">
+    <h1>Welcome to Fitly</h1>
+    <h5>Fitness workout generator</h5>
+    <br>
+    <h3>Let's start by finding out a bit more about you and what you would like to workout.</h3>
+    <br>
+
+
+    <p>What muscle group would you like to work out?</p>
+    <select class="custom-select" name="muscle-group" id="muscle-group">
+        <option value="abs">Abs</option>
+        <option value="arms">Arms</option>
+        <option value="glutes">Glutes</option>
+        <option value="legs">Legs</option>
+    </select>
+
+    <div class="mt-4">
+        <p>Would you like an at home workout or a gym workout?</p>
+        <select class="custom-select" name="workout-location" id="workout-location">
+            <option value="home">At home</option>
+            <option value="gym">In the gym</option>
+        </select>
+    </div>
+
+
+    <div class="mt-4">
+        <button class="btn btn-success" onclick="handleSubmit()">
+            Click here to get your personalised workout
+        </button>
+    </div>
+
+    <div class="mt-4">
+        <button class="btn btn-info" onclick="getRandomWorkout()">
+            Get a random workout
+        </button>
+    </div>
+</div>
+
+
+<script>
+    function redirect(search) {
+        window.location.assign(window.location.origin + "/results/" + search);
+    }
+
+
+    function handleSubmit() {
+        let muscleGroupValue = document.getElementById('muscle-group').value;
+        let workoutLocationValue = document.getElementById('workout-location').value;
+        redirect(workoutLocationValue + "+" + muscleGroupValue + "+" + "workout");
+    }
+
+    function getRandomWorkout() {
+        redirect('workout');
+    }
+
+
+
+</script>
+
+{% endblock %}
