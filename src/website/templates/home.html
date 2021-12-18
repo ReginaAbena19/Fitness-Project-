@@ -1,15 +1,15 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %}
+{% extends "base.html" %} {% block title %}Fitly{% endblock %}
 
 {% block content %}
-<div class="text-center mt-4">
+<div class="quiz-background">
+    <div class="text-center mt-4">
     <h1>Welcome to Fitly</h1>
-    <h5>Fitness workout generator</h5>
+    <h5>The fitness workout video generator</h5>
     <br>
-    <h3>Let's start by finding out a bit more about you and what you would like to workout.</h3>
+    <h3>Let's choose our workout for today</h3>
     <br>
 
-
-    <p>What muscle group would you like to work out?</p>
+    <p>Which muscle group would you like to work out?</p>
     <select class="custom-select" name="muscle-group" id="muscle-group">
         <option value="abs">Abs</option>
         <option value="arms">Arms</option>
@@ -18,24 +18,24 @@
     </select>
 
     <div class="mt-4">
-        <p>Would you like an at home workout or a gym workout?</p>
+        <p>Would you like to perform an at home workout or a gym workout?</p>
         <select class="custom-select" name="workout-location" id="workout-location">
             <option value="home">At home</option>
             <option value="gym">In the gym</option>
         </select>
     </div>
 
-
     <div class="mt-4">
         <button class="btn btn-success" onclick="handleSubmit()">
-            Click here to get your personalised workout
+            Get your personalised workout
         </button>
     </div>
 
     <div class="mt-4">
         <button class="btn btn-info" onclick="getRandomWorkout()">
-            Get a random workout
+            Unsure what to workout? Get a random one!
         </button>
+    </div>
     </div>
 </div>
 
@@ -55,8 +55,6 @@
     function getRandomWorkout() {
         redirect('workout');
     }
-
-
 
 </script>
 
