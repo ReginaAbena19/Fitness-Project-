@@ -6,7 +6,7 @@ from written_workout import get_written_workout # Yasmine's Exercise DB function
 # User decides whether they want a random workout or input their preferences
 
 
-def main():
+def main(): #Regina's function
     first_move = input("Hello!, What would you like to do today? Options are: A) Random Workout\n B) Specific Workout\n C) Written Workout?"
                        "\n Answer:")
     if first_move == "A" or first_move == "Random Workout":
