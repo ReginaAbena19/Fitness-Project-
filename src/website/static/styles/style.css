@@ -48,5 +48,64 @@ h1{
     background-size: cover;
 }
 
+.logout {
+    margin-left: 160px;
+    margin-top: -20px;
+    height: 150px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.18);
+    border-radius: 10px;
+    color: black;
+    font-family: Helvetica Neue;
+    font-size: 40px;
+    width: 580px;
+    text-align: center;
+}
 
+.btn-logout {
+    background-color: teal;
+    border: 2px solid white;
+}
+
+.btn-logout:hover {
+    background-color: #474242
+}
+
+#loginhere {
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.18);
+    border-radius: 10px;
+    color: black;
+}
+
+.btn-login {
+    background-color: teal;
+    border: 2px solid white;
+}
+
+.btn-login:hover {
+    background-color: #474242
+}
+
+#signup{
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.18);
+    border-radius: 10px;
+    color: black;
+}
+
+.btn-signup {
+    background-color: teal;
+    border: 2px solid white;
+}
+
+.btn-signup:hover {
+    background-color: #474242
+}
+
+.form-group {
+    color: black;
+}
 
