@@ -1,1 +1,52 @@
-body {color: #0066cc ;}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica Neue;
+}
+
+
+body {
+    margin: 0;
+    height: 0;
+    background-color: #ffffff;
+}
+
+h1{
+    color: #ffffff
+}
+
+.quiz-background {
+    margin-top: -30%
+}
+
+.btn-success {
+  background-color: teal;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-success:hover {
+    background-color: #474242
+}
+
+.btn-info {
+  background-color: teal;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-info:hover {
+    background-color: #474242
+}
+
+.bg-image {
+    background-size: auto;
+    opacity: 0.8;
+    padding: 30em;
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url(../images/homepage_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
