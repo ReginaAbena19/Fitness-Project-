@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Results page{% endblock %}
+{% block content %}
+<h1 style="color: #03989E;">Here's your personalised workout&nbsp;</h1>
+    <p><strong style="color: #000;">You've chosen a <em>{{selected_bodypart}}&nbsp;workout!</em></strong></p>
+    <p>For a strength workout, do each exercise 2-6 times for 1 to 5 repetitions of each exercise.<br><br>
+    For a muscle-building workout, do each exercise 3-6 times for 6 to 12 repetitions.<br><br>
+    For an endurance workout, do each exercise 2-3 times for 12 to 20+ repetitions.<br></p>
+<div>
+    <table style="vertical-align: top; width: 808px; height: 353px;", border=1px>
+        <thead>
+            <tr style="height: 23px; font-weight: bold; text-align: center;">
+            <td style="width: 140px; height: 23px;"><b>Exercise</b></td>
+            <td style="width: 140px; height: 23px;"><b>Equipment</b></td>
+            <td style="width: 400px; height: 23px;"><b>Demonstration</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(0, len) %}
+            <tr style="height: 47px; text-align: center">
+            <td style="min-width: 140px; width: 140px; height: 47px;">{{names[i]}}</td>
+            <td style="min-width: 140px; width: 140px; height: 47px;">{{equipments[i]}}</td>
+            <td style="width: 400px; height: 47px;"><img src="{{gifs[i]}}" width=300px, height="auto"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
