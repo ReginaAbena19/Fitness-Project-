@@ -2,7 +2,10 @@ import os
 import googleapiclient.discovery
 import random
 
-def get_workout_results_from_youtube(workout_type):
+from flask import render_template
+
+
+def get_workout_results_from_youtube(workout_type, number_of_videos):
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
     api_service_name = "youtube"
     api_version = "v3"
@@ -20,7 +23,6 @@ def get_workout_results_from_youtube(workout_type):
     response = requests.execute()
 
     items = response["items"]
-    randomise_results = random.sample(items, 3)
+    randomise_results = random.sample(items, number_of_videos)
 
-    return randomise_results
-
+    return render_template('results.html', len=len(randomise_results), videos=randomise_results)
