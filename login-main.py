@@ -1,27 +1,27 @@
-from flask import Flask, render_template,redirect,url_for
-from flask_bootstrap import Bootstrap
+from flask import Flask, render_template, redirect,url_for
 
-app = Flask (__name__)
+app = Flask (__name__, template_folder ='templates')
 
-Bootstrap(app)
+
+@app.route('/')
+def index():
+    return render_template("base.html")
 
 @app.route('/login')
-def index():
-    return redirect(url_for('new_user'))
-#redirected to homepage if login,username +password are correct-authenticated by db
-#else directed to page showing e.g. "incorrect login" then they can signup
-@app.route('/signup')
-def new_user():
-    return render_template ("sign up.html")
+def login():
+    return render_template("login.html")
 
 @app.route('/home')
 def home():
     return render_template("home.html")
-#appears if login is successful
+
+@app.route('/signup')
+def new_user():
+    return render_template("signup.html")
+
 @app.route('/logout')
 def profile():
     return render_template("logout.html")
 
 if __name__ =='__main__':
     app.run(debug=True)
-
