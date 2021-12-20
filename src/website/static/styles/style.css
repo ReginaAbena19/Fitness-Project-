@@ -12,7 +12,25 @@ body {
 }
 
 h1{
-    color: #ffffff
+    color: #ffffff;
+    font-size: 90px;
+}
+
+h3{
+    color: white;
+}
+
+h5 {
+    font-size: 50px;
+    padding: 30px;
+
+}
+
+p {
+    font-size: 20px;
+    color: white;
+    padding: 30px;
+
 }
 
 .quiz-background {
