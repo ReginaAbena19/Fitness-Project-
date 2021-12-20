@@ -19,6 +19,11 @@ def home():
 def new_user():
     return render_template("signup.html")
 
+#for when the login is successful
+@app.route('/profile')
+def user_profile():
+    return render_template("profile.html")
+
 @app.route('/logout')
 def profile():
     return render_template("logout.html")
