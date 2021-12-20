@@ -1,35 +1,35 @@
 import requests
-from flask import Blueprint
+from flask import render_template, request
 import random
 
-views = Blueprint('views', __name__)
 
+def get_written_workout():
+    selected_bodypart = request.form['muscle-group']
+    url = "https://exercisedb.p.rapidapi.com/exercises/bodyPart/" + selected_bodypart
 
-@views.route('/results/<workout_type>')
-def get_written_workout(workout_type):
-    url = f"https://exercisedb.p.rapidapi.com/exercises/bodyPart/{workout_type}" # Need to check if this works and
-    # pulls parameters from the quiz in the same way as it does for the Youtube API (the search only works by body
-    # part so should be "/bodyPart/back"
+    payload = {
+    }
 
     headers = {
         'x-rapidapi-host': "exercisedb.p.rapidapi.com",
         'x-rapidapi-key': "6491b9bedamsh60d64359f44595dp19a013jsn596072484b13"
     }
 
-    response = requests.request("GET", url, headers=headers)
+    response = requests.request("GET", url, headers=headers, data=payload)
     item_list = response.json()
-    exercise_names_list = []
-    exercise_equipment_list = []
-    exercise_gif_list = []
-    randomise_results = random.sample(item_list, 5)
+    names_list = []
+    equipment_list = []
+    gif_list = []
+    randomise_results = random.sample(list(item_list), 5)
 
     for result in randomise_results:
-        exercise_names_list.append(result["name"])
-        exercise_equipment_list.append(result["equipment"])
-        exercise_gif_list.append(result["gifUrl"])
+        names_list.append(result["name"])
+        equipment_list.append(result["equipment"])
+        gif_list.append(result["gifUrl"])
 
-    print(exercise_names_list)
-    print(exercise_equipment_list)
-    print(exercise_gif_list)
+    print(names_list)
+    print(equipment_list)
+    print(gif_list)
 
-    return get_written_workout()
+    return render_template("results_written.html", len=len(randomise_results), names=names_list,
+                           equipments=equipment_list, gifs=gif_list, selected_bodypart=selected_bodypart)
