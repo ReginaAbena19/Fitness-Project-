@@ -24,10 +24,6 @@ def new_user():
 def user_profile():
     return render_template("profile.html")
 
-@app.route('/user')
-def user():
-    return render_template("user.html")
-
 @app.route('/logout')
 def logout():
     return render_template("logout.html")
