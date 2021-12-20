@@ -3,39 +3,39 @@
 {% block content %}
 <div class="quiz-background">
     <div class="text-center mt-4">
-    <h1>Welcome to Fitly</h1>
-    <h5>The fitness workout video generator</h5>
-    <br>
-    <h3>Let's choose our workout for today</h3>
-    <br>
+        <h1>Welcome to <strong>Fitly</strong></h1>
+        <h5>The workout video generator</h5>
+        <br>
+        <h3>Choose your workout for today</h3>
 
-    <p>Which muscle group would you like to work out?</p>
-    <select class="custom-select" name="muscle-group" id="muscle-group">
-        <option value="abs">Abs</option>
-        <option value="arms">Arms</option>
-        <option value="glutes">Glutes</option>
-        <option value="legs">Legs</option>
-    </select>
-
-    <div class="mt-4">
-        <p>Would you like to perform an at home workout or a gym workout?</p>
-        <select class="custom-select" name="workout-location" id="workout-location">
-            <option value="home">At home</option>
-            <option value="gym">In the gym</option>
+        <p style="text-align:left">
+            <strong>Step 1: </strong>Which muscle group would you like to work out?</p>
+        <select class="custom-select" name="muscle-group" id="muscle-group">
+            <option value="abs">Abs</option>
+            <option value="arms">Arms</option>
+            <option value="glutes">Glutes</option>
+            <option value="legs">Legs</option>
         </select>
-    </div>
 
-    <div class="mt-4">
-        <button class="btn btn-success" onclick="handleSubmit()">
-            Get your personalised workout
-        </button>
-    </div>
+        <div class="mt-4">
+            <p style="text-align:left"><strong>Step 2:</strong> Would you like to perform your workout at home or in the gym?</p>
+            <select class="custom-select" name="workout-location" id="workout-location">
+                <option value="home">At home</option>
+                <option value="gym">In the gym</option>
+            </select>
+        </div>
 
-    <div class="mt-4">
-        <button class="btn btn-info" onclick="getRandomWorkout()">
-            Unsure what to workout? Get a random one!
-        </button>
-    </div>
+        <div class="mt-4">
+            <button class="btn btn-success" onclick="handleSubmit()">
+                Get your personalised workout
+            </button>
+        </div>
+
+        <div class="mt-4">
+            <button class="btn btn-info" onclick="getRandomWorkout()">
+                Unsure what to workout? Get a random video!
+            </button>
+        </div>
     </div>
 </div>
 
@@ -55,6 +55,7 @@
     function getRandomWorkout() {
         redirect('workout');
     }
+
 
 </script>
 
