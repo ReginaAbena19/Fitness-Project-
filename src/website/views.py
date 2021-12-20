@@ -1,6 +1,6 @@
-from flask import Flask, Blueprint, render_template
-from src.youtube import youtube_utils
-
+from flask import Blueprint, render_template, request
+from quiz.written_workout import get_written_workout
+from src.youtube.youtube_utils import get_workout_results_from_youtube
 
 views = Blueprint('views', __name__)
 
@@ -10,7 +10,12 @@ def home():
     return render_template("home.html")
 
 
-@views.route('/results/<workout_type>')
-def results(workout_type):
-    videos = youtube_utils.get_workout_results_from_youtube(workout_type)
-    return render_template("results.html", len=len(videos), videos=videos)
+@views.route('/results/', methods=["POST", "GET"])
+def results():
+    workout_type = request.form['workout-location'] + "+" + request.form['muscle-group'] + "+" + "workout"
+    if request.form['submit-button'] == "written":
+        return get_written_workout()
+    elif request.form['submit-button'] == "personalised-youtube":
+        return get_workout_results_from_youtube(workout_type, 3)
+    elif request.form['submit-button'] == "random-youtube":
+        return get_workout_results_from_youtube(workout_type, 1)

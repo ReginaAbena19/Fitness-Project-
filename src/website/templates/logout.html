@@ -1,8 +1,11 @@
 {% extends "base.html" %} {% block title %}Logout{% endblock %}
 
 {% block content %}
-    <h3>You have been logged out.</h3>
-    <button class="btn btn-primary"><a href ="/login" style="color: #FFFFFF">Login again</a>
-    </button>
-
+    <div class="logout">
+        You have been logged out.
+        <br>
+        <button class="btn btn-logout">
+            <a href ="/login" style="color: #FFFFFF">Log back in</a>
+        </button>
+    </div>
 {% endblock %}

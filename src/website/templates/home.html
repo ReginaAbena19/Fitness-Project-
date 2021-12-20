@@ -1,62 +1,59 @@
 {% extends "base.html" %} {% block title %}Fitly{% endblock %}
 
 {% block content %}
-<div class="quiz-background">
-    <div class="text-center mt-4">
-        <h1>Welcome to <strong>Fitly</strong></h1>
-        <h5>The workout video generator</h5>
-        <br>
-        <h3>Choose your workout for today</h3>
-
-        <p style="text-align:left">
-            <strong>Step 1: </strong>Which muscle group would you like to work out?</p>
-        <select class="custom-select" name="muscle-group" id="muscle-group">
-            <option value="abs">Abs</option>
-            <option value="arms">Arms</option>
-            <option value="glutes">Glutes</option>
-            <option value="legs">Legs</option>
-        </select>
-
-        <div class="mt-4">
-            <p style="text-align:left"><strong>Step 2:</strong> Would you like to perform your workout at home or in the gym?</p>
-            <select class="custom-select" name="workout-location" id="workout-location">
-                <option value="home">At home</option>
-                <option value="gym">In the gym</option>
-            </select>
-        </div>
-
-        <div class="mt-4">
-            <button class="btn btn-success" onclick="handleSubmit()">
-                Get your personalised workout
-            </button>
-        </div>
-
-        <div class="mt-4">
-            <button class="btn btn-info" onclick="getRandomWorkout()">
-                Unsure what to workout? Get a random video!
-            </button>
-        </div>
-    </div>
+<div class="text-center mt-4">
+    <h1>Welcome to Fitly</h1>
+    <h5>The fitness workout generator</h5>
+    <br>
+    <h3>Let's choose our workout for today</h3>
+    <br>
 </div>
 
+<form action="/results/" method="post">
+    <div class="form-group">
+        <label for="muscle-group">What muscle group would you like to work out?</label>
+        <select class="custom-select" name="muscle-group" id="muscle-group">
+            <option value="back">
+                Back
+            </option>
+            <option value="upper legs">
+                Legs
+            </option>
+            <option value="waist">
+                Abs
+            </option>
+            <option value="upper arms">
+                Arms
+            </option>
+            <option value="shoulders">
+                Shoulders
+            </option>
+        </select>
+    </div>
 
-<script>
-    function redirect(search) {
-        window.location.assign(window.location.origin + "/results/" + search);
-    }
+    <div class="mt-4">
+        <p>Would you like an at home workout or a gym workout?</p>
+        <select class="custom-select" name="workout-location" id="workout-location">
+            <option value="home">At home</option>
+            <option value="gym">In the gym</option>
+        </select>
+    </div>
+    <div class="mt-4">
+        <button class="btn btn-success" type="submit" name="submit-button" value="personalised-youtube">
+            Get your personalised YouTube workout!
+        </button>
+    </div>
 
-
-    function handleSubmit() {
-        let muscleGroupValue = document.getElementById('muscle-group').value;
-        let workoutLocationValue = document.getElementById('workout-location').value;
-        redirect(workoutLocationValue + "+" + muscleGroupValue + "+" + "workout");
-    }
-
-    function getRandomWorkout() {
-        redirect('workout');
-    }
-
-
-</script>
+    <div class="mt-4">
+        <button class="btn btn-info" type="submit" name="submit-button" value="random-youtube">
+            Get a random YouTube workout!
+        </button>
+    </div>
+    <div class="mt-4">
+        <button type="submit" name="submit-button" value="written" class="btn btn-info">
+            Get a personalised written workout!
+        </button>
+    </div>
+</form>
 
 {% endblock %}
