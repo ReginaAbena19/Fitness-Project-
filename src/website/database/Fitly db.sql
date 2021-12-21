@@ -18,14 +18,13 @@ VALUES
 (004, 'Regina','Reginaob@gmail.com','Orange'),
 (005, 'Raghad','Raghadzuraiki@gmail.com','Lemon');
 
-Select*from youtube_results;
+
 
 CREATE TABLE Youtube_results(
 Workout_name VARCHAR(100) NOT NULL,
 Workout_url VARCHAR(2048) NOT NULL
 );
 
-drop table exercise_db_workouts;
 
 CREATE TABLE Exercise_db_results(
 Workout_name VARCHAR(100) NOT NULL,
