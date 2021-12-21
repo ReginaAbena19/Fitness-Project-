@@ -1,17 +1,18 @@
-{% extends "base.html" %} {% block title %}Fitly{% endblock %}
+{% extends "base.html" %} {% block title %}Fitly: Fitness Workout Generator{% endblock %}
 
 {% block content %}
+
 <div class="text-center mt-4">
-    <h1>Welcome to Fitly</h1>
-    <h5>The fitness workout generator</h5>
+    <h1>Welcome to FITLY</h1>
+    <h5>Fitness Workout Generator</h5>
     <br>
-    <h3>Let's choose our workout for today</h3>
+    <h3>How would you like to workout today?</h3>
     <br>
 </div>
 
-<form action="/results/" method="post">
+<form action="/results/" method="POST">
     <div class="form-group">
-        <label for="muscle-group">What muscle group would you like to work out?</label>
+        <label for="muscle-group">Select the muscle group that you would like to work out</label>
         <select class="custom-select" name="muscle-group" id="muscle-group">
             <option value="back">
                 Back
@@ -30,30 +31,32 @@
             </option>
         </select>
     </div>
-
-    <div class="mt-4">
-        <p>Would you like an at home workout or a gym workout?</p>
+    <div class="form-group">
+        <label for="workout-location">Would you like to workout at home or in the gym?</label>
         <select class="custom-select" name="workout-location" id="workout-location">
             <option value="home">At home</option>
             <option value="gym">In the gym</option>
         </select>
     </div>
-    <div class="mt-4">
+
+    <div class="buttons">
         <button class="btn btn-success" type="submit" name="submit-button" value="personalised-youtube">
-            Get your personalised YouTube workout!
+            <strong>Option 1:</strong> Get a personalised YouTube workout video
         </button>
     </div>
 
-    <div class="mt-4">
-        <button class="btn btn-info" type="submit" name="submit-button" value="random-youtube">
-            Get a random YouTube workout!
+    <div class="buttons">
+        <button class="btn btn-success" type="submit" name="submit-button" value="written">
+            <strong>Option 2:</strong> Get a personalised written workout guide
         </button>
     </div>
-    <div class="mt-4">
-        <button type="submit" name="submit-button" value="written" class="btn btn-info">
-            Get a personalised written workout!
+
+    <div class="buttons">
+        <button class="btn btn-success" type="submit" name="submit-button" value="random-youtube">
+            <strong>Option 3:</strong> Still unsure what to workout? Get a random YouTube workout video!
         </button>
     </div>
+
 </form>
 
 {% endblock %}
