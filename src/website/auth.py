@@ -2,6 +2,7 @@ import re
 from flask import Blueprint, render_template, request, redirect, session, url_for
 from flask_mysqldb import MySQL
 from src.website.profile.retrieve_workout_history import get_workout_history
+from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint('auth', __name__)
 
@@ -13,17 +14,20 @@ def login():
         password = request.form['password']
         mysql = MySQL()
         conn = mysql.connection.cursor()
-        conn.execute('SELECT * FROM users WHERE email = % s AND password = % s ', (email, password,))
+        conn.execute('SELECT * FROM users WHERE email = % s ', (email,))
         user = conn.fetchone()
         print(user)
         if user:
-            session['loggedin'] = True
-            session['id'] = user[0]
-            session['email'] = user[1]
-            print("Logged in successfully")
-            return redirect('/')
+            if check_password_hash(user[2], password):
+                session['loggedin'] = True
+                session['id'] = user[0]
+                session['email'] = user[1]
+                print("Logged in successfully")
+                return redirect('/')
+            else:
+                flash('Incorrect password', category='error')
         else:
-            print("Incorrect username or password")
+            flash('Incorrect username', category='error')
     return render_template("login.html", boolean=True)
 
 
@@ -33,9 +37,9 @@ def logout():
     session.pop('id', None)
     session.pop('email', None)
 
-    return redirect('/login')
+    #return redirect('/login')
     # could we have this redirect to the logout page?
-    # return render_template("logout.html", boolean=True)
+    return render_template("logout.html", boolean=True)
 
 @auth.route('/profile')
 def profile():
@@ -49,12 +53,12 @@ def profile():
 def sign_up():
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
         email = request.form['email']
-        password = request.form['password']
+        password = generate_password_hash(request.form['password'], method='sha256')
         mysql = MySQL()
         conn = mysql.connection.cursor()
         conn.execute(''' CREATE TABLE IF NOT EXISTS users (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                      email VARCHAR(100) NOT NULL,
-                     password VARCHAR(20) NOT NULL) ''')
+                     password VARCHAR(200) NOT NULL) ''')
         conn.execute('SELECT * FROM users WHERE email = % s ', (email,))
         user = conn.fetchone()
         if user:
