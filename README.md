@@ -26,6 +26,10 @@ pip install src.youtube
 
 pip install googleapiclient.discovery
 
+pip install flask_mysqldb
+
+Disclaimer: As videos are retrieved from the youtube API they are subject to copyright music laws. Consequently, 
+video thumbnails of videos subject to copyright infringement will not be displayed.
 
 User tutorial:
 
