@@ -1,6 +1,9 @@
 import requests
-from flask import render_template, request
+from flask import render_template, request, Blueprint
 import random
+import pandas as pd
+
+views = Blueprint('views', __name__)
 
 
 def get_written_workout():
@@ -22,6 +25,13 @@ def get_written_workout():
     gif_list = []
     randomise_results = random.sample(list(item_list), 5)
 
+    print(randomise_results)
+
+    df = pd.DataFrame(randomise_results)
+    df.to_csv('workouts.csv', columns=[
+        'bodyPart', 'equipment', 'gifUrl', 'id', 'name', 'target'
+    ])
+
     for result in randomise_results:
         names_list.append(result["name"])
         equipment_list.append(result["equipment"])
@@ -32,4 +42,4 @@ def get_written_workout():
     print(gif_list)
 
     return render_template("results_written.html", len=len(randomise_results), names=names_list,
-                           equipments=equipment_list, gifs=gif_list, selected_bodypart=selected_bodypart)
+                           equipments=equipment_list, gifs=gif_list, selected_bodypart=selected_bodypart, url=url)
