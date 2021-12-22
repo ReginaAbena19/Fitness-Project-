@@ -37,9 +37,10 @@ def logout():
     session.pop('id', None)
     session.pop('email', None)
 
-    #return redirect('/login')
+    # return redirect('/login')
     # could we have this redirect to the logout page?
     return render_template("logout.html")
+
 
 @auth.route('/profile')
 def profile():
@@ -48,15 +49,16 @@ def profile():
     return render_template("profile.html")
 
 
-
 @auth.route('/sign-up', methods=["GET", "POST"])
 def sign_up():
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+        name = request.form['name']
         email = request.form['email']
         password = generate_password_hash(request.form['password'], method='sha256')
         mysql = MySQL()
         conn = mysql.connection.cursor()
         conn.execute(''' CREATE TABLE IF NOT EXISTS users (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                     name VARCHAR(50) NOT NULL,
                      email VARCHAR(100) NOT NULL,
                      password VARCHAR(1000) NOT NULL) ''')
         conn.execute('SELECT * FROM users WHERE email = % s ', (email,))
@@ -68,7 +70,7 @@ def sign_up():
         elif not email or not password:
             print('Please fill out the form')
         else:
-            conn.execute('INSERT INTO users (email, password) VALUES (%s, %s)', (email, password,))
+            conn.execute('INSERT INTO users (name, email, password) VALUES (%s, %s, %s)', (name, email, password,))
             mysql.connection.commit()
             return redirect('/login')
         conn.close()
