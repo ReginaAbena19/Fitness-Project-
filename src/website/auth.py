@@ -3,6 +3,7 @@ from flask import Blueprint, render_template, request, redirect, session, url_fo
 from flask_mysqldb import MySQL
 from src.website.profile.retrieve_workout_history import get_workout_history
 from werkzeug.security import generate_password_hash, check_password_hash
+from src.website.db import user_db_connection
 
 auth = Blueprint('auth', __name__)
 
@@ -55,12 +56,13 @@ def sign_up():
         email = request.form['email']
         password = generate_password_hash(request.form['password'], method='sha256')
         mysql = MySQL()
-        conn = mysql.connection.cursor()
-        conn.execute(''' CREATE TABLE IF NOT EXISTS users (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                     email VARCHAR(100) NOT NULL,
-                     password VARCHAR(1000) NOT NULL) ''')
-        conn.execute('SELECT * FROM users WHERE email = % s ', (email,))
-        user = conn.fetchone()
+
+        db = user_db_connection.userAccountDbConnection
+        connection = db.connect_to_database(mysql)
+        db.create_user_table(connection)
+
+        user = db.check_if_user_exists_in_db(connection, email)
+
         if user:
             print('Account already exists')
         elif not re.match(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', email):
@@ -68,10 +70,9 @@ def sign_up():
         elif not email or not password:
             print('Please fill out the form')
         else:
-            conn.execute('INSERT INTO users (email, password) VALUES (%s, %s)', (email, password,))
-            mysql.connection.commit()
+            db.insert_new_user(connection, email, password)
+            db.commit_to_database(mysql)
             return redirect('/login')
-        conn.close()
-        print("DONE")
+        db.close_database_connection(connection)
 
     return render_template("sign_up.html")
