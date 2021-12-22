@@ -39,9 +39,9 @@ def logout():
 
 @auth.route('/sign-up', methods=["GET", "POST"])
 def sign_up():
-    if request.method == 'POST' and 'email' in request.form and 'password1' in request.form:
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
         email = request.form['email']
-        password = request.form['password1']
+        password = request.form['password']
         mysql = MySQL()
         conn = mysql.connection.cursor()
         conn.execute(''' CREATE TABLE IF NOT EXISTS users (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
