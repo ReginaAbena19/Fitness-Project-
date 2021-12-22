@@ -59,7 +59,7 @@ def reg():
         mysql.connection.commit()
         cur.close()
         flash('Registration Successfully. Login Here...', 'success')
-        return redirect('login')
+        return redirect('profile')
     return render_template("sign_up.html", status=status)
 
 
@@ -85,4 +85,3 @@ def logout():
 if __name__ == '__main__':
     app.secret_key = 'secret123'
     app.run(debug=True)
-
