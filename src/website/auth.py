@@ -33,6 +33,8 @@ def logout():
     session.pop('email', None)
 
     return redirect('/login')
+    # could we have this redirect to the logout page?
+    # return render_template("logout.html", boolean=True)
 
 
 @auth.route('/sign-up', methods=["GET", "POST"])
