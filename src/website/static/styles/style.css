@@ -114,7 +114,6 @@
 
 .btn-logout {
     background-color: #03989e;
-    border: 2px solid white;
 }
 
 .btn-logout:hover {
@@ -130,7 +129,6 @@
 
 .btn-login {
     background-color: #03989e;
-    border: 2px solid white;
 }
 
 .btn-login:hover {
@@ -148,7 +146,6 @@
 
 .btn-signup {
     background-color: #03989e;
-    border: 2px solid white;
 }
 
 .btn-signup:hover {
