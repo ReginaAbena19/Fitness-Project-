@@ -19,7 +19,7 @@ def login():
         user = conn.fetchone()
         print(user)
         if user:
-            if check_password_hash(user[2], password):
+            if check_password_hash(user[3], password):
                 session['loggedin'] = True
                 session['id'] = user[0]
                 session['email'] = user[1]
