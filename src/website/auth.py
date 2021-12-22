@@ -1,5 +1,5 @@
 import re
-from flask import Blueprint, render_template, request, redirect, session, url_for
+from flask import Blueprint, render_template, request, redirect, session, url_for, flash
 from flask_mysqldb import MySQL
 from src.website.profile.retrieve_workout_history import get_workout_history
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -39,7 +39,7 @@ def logout():
 
     #return redirect('/login')
     # could we have this redirect to the logout page?
-    return render_template("logout.html", boolean=True)
+    return render_template("logout.html")
 
 @auth.route('/profile')
 def profile():
