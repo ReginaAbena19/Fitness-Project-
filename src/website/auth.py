@@ -1,6 +1,7 @@
 import re
 from flask import Blueprint, render_template, request, redirect, session, url_for
 from flask_mysqldb import MySQL
+from src.website.profile.retrieve_workout_history import get_workout_history
 
 auth = Blueprint('auth', __name__)
 
@@ -35,6 +36,13 @@ def logout():
     return redirect('/login')
     # could we have this redirect to the logout page?
     # return render_template("logout.html", boolean=True)
+
+@auth.route('/profile')
+def profile():
+    user_id = session.get('id')
+    get_workout_history(user_id)
+    return render_template("profile.html")
+
 
 
 @auth.route('/sign-up', methods=["GET", "POST"])

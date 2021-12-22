@@ -22,33 +22,41 @@ def get_workout_results_from_youtube(workout_type, number_of_videos):
     )
     response = requests.execute()
 
-    urls = []
-
     items = response["items"]
     randomise_results = random.sample(items, number_of_videos)
 
-    for item in randomise_results:
-        url1 = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"]),
-        url2 = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"]),
-        url3 = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"])
+    urls = []
 
-        urls.append(url1)
-        urls.append(url2)
-        urls.append(url3)
+    if number_of_videos == 3:
+        for item in randomise_results:
+            url1 = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"]),
+            url2 = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"]),
+            url3 = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"])
 
-        url_to_db(url1, url2, url3)
+            urls.append(url1)
+            urls.append(url2)
+            urls.append(url3)
+    else:
+        for item in randomise_results:
+            url = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"])
+            urls.append(url)
+
+    url_to_db(urls)
 
     return render_template('results.html', len=len(randomise_results), videos=randomise_results)
 
 
-def url_to_db(url1, url2, url3):
+def url_to_db(urls):
     if request.method == 'POST':
         mysql = MySQL()
         conn = mysql.connection.cursor()
         conn.execute('''CREATE TABLE IF NOT EXISTS youtube_results (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        video_1 VARCHAR(500) NOT NULL, video_2 VARCHAR(500) 
-        NOT NULL, video_3 VARCHAR(500) NOT NULL, userid INT(11) NOT NULL) ''')
-        conn.execute('INSERT INTO youtube_results (video_1, video_2, video_3, userid) VALUES (%s, %s, %s, %s)',
-                     (url1, url2, url3, session['id'],))
+        video_1 VARCHAR(500) NOT NULL, video_2 VARCHAR(500), video_3 VARCHAR(500), userid INT(11) NOT NULL) ''')
+        if len(urls) == 3:
+            conn.execute('INSERT INTO youtube_results (video_1, video_2, video_3, userid) VALUES (%s, %s, %s, %s)',
+                         (urls[0], urls[1], urls[2], session['id'],))
+        else:
+            conn.execute('INSERT INTO youtube_results (video_1, userid) VALUES (%s, %s)',
+                         (urls[0], session['id'],))
         mysql.connection.commit()
         conn.close()
