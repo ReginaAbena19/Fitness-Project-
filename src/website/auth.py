@@ -58,7 +58,7 @@ def sign_up():
         conn = mysql.connection.cursor()
         conn.execute(''' CREATE TABLE IF NOT EXISTS users (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                      email VARCHAR(100) NOT NULL,
-                     password VARCHAR(200) NOT NULL) ''')
+                     password VARCHAR(1000) NOT NULL) ''')
         conn.execute('SELECT * FROM users WHERE email = % s ', (email,))
         user = conn.fetchone()
         if user:
