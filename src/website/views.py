@@ -27,4 +27,4 @@ def results():
         return youtube_workout.get_workout_results_from_youtube(workout_type, 3)
     elif workout_specified == "random-youtube":
         youtube_workout = YoutubeWorkout(workout_type, 1)
-        return youtube_workout.get_workout_results_from_youtube(workout_type, 1)
+        return youtube_workout.get_random_workout(workout_type, 1)
