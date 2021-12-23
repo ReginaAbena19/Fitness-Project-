@@ -3,7 +3,7 @@
 ### by Alexandra, Delia, Raghad, Regina and Yasmine
 
 
-We are proud to introduce Fitly, a new and innovative fitness workout generator that ensures that anyone, regardless of fitness level, experience or confidence can achieve their fitness goals. 
+We are proud to introduce Fitly, a new and innovative fitness workout generator that ensures that anyone, regardless of fitness level, experience or confidence, can achieve their fitness goals. 
 
 **What is Fitly?**
 
