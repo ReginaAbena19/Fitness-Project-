@@ -45,7 +45,14 @@ def logout():
 def profile():
     user_id = session.get('id')
     get_workout_history(user_id)
-    return render_template("profile.html")
+    mysql = MySQL()
+    conn = mysql.connection.cursor()
+    conn.execute('''SELECT * FROM youtube_results''')
+    data = conn.fetchall()
+    mysql.connection.commit()
+    conn.close()
+    return render_template("profile.html", data=data)
+
 
 
 

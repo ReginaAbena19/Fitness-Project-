@@ -1,8 +1,22 @@
 {% extends "base.html" %} {% block title %}Profile{% endblock %}
 
 {% block content %}
-    <div class="Profile">
+        <div class="Profile">
         <h1>Welcome To Your Dashboard</h1>
+            <h3>Here are your recent YouTube Workouts</h3>
         <br>
+        <table border="0" cellpadding="8px" width="100%" style="background-color:#eeeee">
+        <tr style="background-color:white;color:black">
+        {% for item in data%}
+            {% if item is none %}
+    <!--None-->
+            {% else %}
+        <tr>
+            <td><iframe width="560" height="315" src="{{item[1]}}" frameborder="0" allowfullscreen></iframe></td>
+            {% endif %}
+            {% endfor %}
+
+        </tr>
+        </table>
     </div>
 {% endblock %}
