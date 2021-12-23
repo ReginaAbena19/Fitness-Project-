@@ -3,15 +3,11 @@
 ### by Alexandra, Delia, Raghad, Regina and Yasmine
 
 
-We are proud to introduce Fitly, a new and innovative workout video generator that ensures that anyone, regardless of fitness level, experience or confidence can achieve their fitness goals.
+We are proud to introduce Fitly, a new and innovative fitness workout generator that ensures that anyone, regardless of fitness level, experience or confidence can achieve their fitness goals. 
 
 **What is Fitly?**
 
-Fitly is a web-based application that generates Youtube workout videos for the user based on the user's selection of:
-1. The muscle group that they want to target
-2. Whether they wish to do a workout at home or at the gym
-
-Fitly then generates 3 recommended workout videos which are embedded in the web app, based on the user's selection.
+Fitly is a web-based application that recommends a workout for a user based on the user’s target muscle group and whether they want to perform a workout at home or in the gym. Fitly integrates with an API called GoogleClientAPI to offer a user a repository of over 200 of the top-recommended workout videos hosted on YouTube, in addition to an extra database of written workout guides. 
 
 **Why was Fitly built?**
 
@@ -26,7 +22,7 @@ pip install googleapiclient.discovery
 
 pip install flask_mysqldb
 
-Disclaimer: As videos are retrieved from the youtube API they are subject to copyright music laws. Consequently, 
+###Disclaimer: As videos are retrieved from the youtube API they are subject to copyright music laws. Consequently, 
 video thumbnails of videos subject to copyright infringement will not be displayed.
 
 User tutorial:
