@@ -1,6 +1,12 @@
-class userAccountDbConnection:
+from flask_mysqldb import MySQL
 
-    def connect_to_database(mysql):
+
+class userAccountDbConnection:
+    def __init__(self):
+        self.mysql = MySQL()
+
+    def connect_to_database():
+        mysql = MySQL()
         conn = mysql.connection.cursor()
         return conn
 
@@ -19,9 +25,10 @@ class userAccountDbConnection:
         user = conn.fetchone()
         return user
 
-
     def insert_new_user(conn, name, email, password):
         conn.execute('INSERT INTO users (name, email, password) VALUES (%s, %s, %s)', (name, email, password,))
 
-    def commit_to_database(mysql):
-        return mysql.connection.commit()
+    def commit_to_database():
+        mysql = MySQL()
+        mysql.connection.commit()
+        print("DONE")
