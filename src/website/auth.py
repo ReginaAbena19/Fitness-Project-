@@ -4,7 +4,7 @@ from flask_mysqldb import MySQL
 from src.website.profile.retrieve_workout_history import get_workout_history
 from werkzeug.security import generate_password_hash, check_password_hash
 from src.website.db import user_db_connection
-from src.website.users.create_user import User
+from src.website.users.user import User
 
 auth = Blueprint('auth', __name__)
 
