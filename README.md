@@ -46,6 +46,9 @@ pip install pandas
 
 pip install google-api-client
 
+**Reccomendations**
+
+It is recommended that Fitly is run on Google Chrome and accessed via a laptop device.
 
 ***Disclaimer: As videos are retrieved from the YouTube API they are subject to copyright music laws. Consequently, 
 video thumbnails of videos subject to copyright infringement will not be displayed.***
