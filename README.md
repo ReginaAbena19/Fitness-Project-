@@ -19,13 +19,13 @@ Fitly solves the “how do I get started” conundrum that often occurs when peo
 
 **To use Fitly:**
 
-Download all files from this repo
+1. Download all files from this repository
 
-Navigate to the folder
+2. Navigate to the folder
 
-Install all prerequisites below
+3. Install all prerequisites below
 
-Run main.py
+4. Run main.py
 
 
 **Prerequisites:**
