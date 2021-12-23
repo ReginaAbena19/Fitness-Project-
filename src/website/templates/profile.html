@@ -1,22 +1,30 @@
 {% extends "base.html" %} {% block title %}Profile{% endblock %}
 
 {% block content %}
-        <div class="Profile">
+    <div class="Profile">
         <h1>Welcome To Your Dashboard</h1>
             <h3>Here are your recent YouTube Workouts</h3>
         <br>
-        <table border="0" cellpadding="8px" width="100%" style="background-color:#eeeee">
-        <tr style="background-color:white;color:black">
+
         {% for item in data%}
             {% if item is none %}
-    <!--None-->
-            {% else %}
-        <tr>
-            <td><iframe width="560" height="315" src="{{item[1]}}" frameborder="0" allowfullscreen></iframe></td>
+                <p> No workout history yet!</p>
             {% endif %}
-            {% endfor %}
+            {% if item[0] and item[1] and item[2] %}
+                <h3> Personalised workout:</h3>
+                {% for url in item %}
+                    <div class="personalised-workout" style="display: inline-block;">
+                        <iframe width="460" height="215" src="{{url}}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h3> Random workout:</h3>
+                <div class="personalised-workout">
+                    <iframe width="560" height="315" src="{{item[0]}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            {% endif %}
 
-        </tr>
-        </table>
+
+        {% endfor %}
     </div>
 {% endblock %}
