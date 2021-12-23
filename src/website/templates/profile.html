@@ -13,14 +13,14 @@
             {% if item[0] and item[1] and item[2] %}
                 <h3> Personalised workout:</h3>
                 {% for url in item %}
-                    <div class="personalised-workout" style="display: inline-block;">
-                        <iframe width="460" height="215" src="{{url}}" frameborder="0" allowfullscreen></iframe>
+                    <div class="personalised-workout" style="display: inline-block; padding-right:5px;">
+                        <iframe width="360" height="200" src="{{url}}" frameborder="0" allowfullscreen></iframe>
                     </div>
                 {% endfor %}
             {% else %}
                 <h3> Random workout:</h3>
-                <div class="personalised-workout">
-                    <iframe width="560" height="315" src="{{item[0]}}" frameborder="0" allowfullscreen></iframe>
+                <div class="random-workout">
+                    <iframe width="360" height="200" src="{{item[0]}}" frameborder="0" allowfullscreen></iframe>
                 </div>
             {% endif %}
 
