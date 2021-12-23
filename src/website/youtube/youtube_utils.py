@@ -29,13 +29,9 @@ def get_workout_results_from_youtube(workout_type, number_of_videos):
 
     if number_of_videos == 3:
         for item in randomise_results:
-            url1 = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"]),
-            url2 = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"]),
-            url3 = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"])
+            url = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"]),
+            urls.append(url)
 
-            urls.append(url1)
-            urls.append(url2)
-            urls.append(url3)
     else:
         for item in randomise_results:
             url = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"])
