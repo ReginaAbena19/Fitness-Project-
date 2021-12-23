@@ -22,8 +22,6 @@ Prerequisites:
 
 pip install flask
 
-pip install src.youtube
-
 pip install googleapiclient.discovery
 
 pip install flask_mysqldb
