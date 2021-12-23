@@ -14,6 +14,7 @@ Fitly is a web-based application that recommends a workout for a user based on t
 Fitly offers the user an opportunity to try new workouts and a chance to build fitness confidence. In a society overwhelmed by the sheer magnitude of fitness-based content, Fitly offers fitness-conscious users a simple solution - the ability to pinpoint their exact workout specifications for an innovative and completely personalisable workout experience.
 Fitly solves the “how do I get started” conundrum that often occurs when people opt to improve their health and wellness through exercise.
 
+
 **To use Fitly:**
 
 Download all files from this repo
@@ -23,6 +24,7 @@ Navigate to the folder
 Install all prerequisites below
 
 Run main.py
+
 
 **Prerequisites:**
 
@@ -45,6 +47,7 @@ pip install google-api-client
 
 ***Disclaimer: As videos are retrieved from the YouTube API they are subject to copyright music laws. Consequently, 
 video thumbnails of videos subject to copyright infringement will not be displayed.***
+
 
 **User tutorial**
 
