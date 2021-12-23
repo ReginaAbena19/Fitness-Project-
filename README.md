@@ -5,7 +5,6 @@
 
 We are proud to introduce Fitly, a new and innovative fitness workout generator that ensures that anyone, regardless of fitness level, experience or confidence, can achieve their fitness goals. 
 
-<img width="674" alt="Screenshot 2021-12-23 at 19 44 08" src="https://user-images.githubusercontent.com/92758314/147285476-e60fe13c-481b-4614-8443-7304bd4707a1.png">
 
 **What is Fitly?**
 
@@ -55,4 +54,4 @@ video thumbnails of videos subject to copyright infringement will not be display
 **User tutorial**
 
 
-
+<img width="674" alt="Screenshot 2021-12-23 at 19 44 08" src="https://user-images.githubusercontent.com/92758314/147285476-e60fe13c-481b-4614-8443-7304bd4707a1.png">
