@@ -104,7 +104,7 @@
     padding-top: 20px;
     padding-bottom: 40px;
     background-color: #fff;
-    background-color: rgba(255,255,255,0.18);
+    background-color: rgba(255,255,255,0.25);
     border-radius: 10px;
     color: black;
     font-family: Helvetica Neue;
@@ -123,7 +123,7 @@
 
 #loginhere {
     background-color: #fff;
-    background-color: rgba(255,255,255,0.18);
+    background-color: rgba(255,255,255,0.25);
     border-radius: 10px;
     color: black;
 }
@@ -140,7 +140,7 @@
 
 #signup{
     background-color: #fff;
-    background-color: rgba(255,255,255,0.18);
+    background-color: rgba(255,255,255,0.25);
     border-radius: 10px;
     color: black;
 }
@@ -161,4 +161,23 @@
 
 .quiz-background {
     margin-top: -30%
+}
+
+/* styling the results page */
+
+#video_title {
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.25);
+    border-radius: 10px;
+    color: black;
+}
+
+/* styling the profile page */
+
+#dashboard {
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.25);
+    border-radius: 10px;
+    color: black;
+    text-align: center;
 }
