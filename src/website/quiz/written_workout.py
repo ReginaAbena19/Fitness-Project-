@@ -50,9 +50,6 @@ class WrittenWorkout:
             'bodyPart', 'equipment', 'gifUrl', 'id', 'name', 'target'
         ])
 
-
-
-
     def get_written_workout(self):
         selected_bodypart = request.form['muscle-group']
         url = self.generate_url_for_api(selected_bodypart)
