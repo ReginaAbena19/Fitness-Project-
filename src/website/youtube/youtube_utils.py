@@ -69,8 +69,7 @@ class YoutubeWorkout:
         requests = youtube.search().list(
             part="snippet",
             maxResults=100,
-            q="workout",
-            order="date"
+            q="workout"
         )
         response_2 = requests.execute()
         return response_2
