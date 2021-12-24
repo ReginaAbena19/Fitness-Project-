@@ -42,8 +42,12 @@ class YoutubeWorkout:
         urls = []
         if self.number_of_videos == 3:
             for item in randomise_results:
-                url = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"]),
-                urls.append(url)      
+                url = ("https://www.youtube.com/embed/" + item["id"]["videoId"]),
+                urls.append(url)
+        else:
+            for item in randomise_results:
+                url = ("https://www.youtube.com/embed/" + item["id"]["videoId"])
+                urls.append(url)
         self.url_to_db(urls)
 
     def get_workout_results_from_youtube(self, workout_type, number_of_videos):
