@@ -63,7 +63,7 @@ It is recommended that Fitly is run on Google Chrome and accessed via a laptop d
 video thumbnails of videos subject to copyright infringement will not be displayed.***
 
 
-**User tutorial**
+**Fitly Overview**
 
 ![output_dJmEqF](https://user-images.githubusercontent.com/88633945/147413922-1791b4f8-1568-4956-a647-3ba96a6f7d11.gif)
 
