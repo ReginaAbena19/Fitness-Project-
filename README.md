@@ -8,7 +8,7 @@ We are proud to introduce Fitly, a new and innovative fitness workout generator 
 
 **What is Fitly?**
 
-Fitly is a web-based application that recommends a workout for a user based on the user’s target muscle group and whether they want to perform a workout at home or in the gym. Fitly integrates with an API called GoogleClientAPI to offer a user a repository of over 200 of the top-recommended workout videos hosted on YouTube, in addition to an extra database of written workout guides. 
+Fitly is a web-based application that recommends a workout for a user based on the user’s target muscle group and whether they want to perform a workout at home or in the gym. Fitly integrates with an API called YouTube Data API to offer a user a repository of over 200 of the top-recommended workout videos hosted on YouTube, in addition to another API called Exercise DB with hundreds of exercises. 
 
 
 **Why was Fitly built?**
@@ -45,6 +45,15 @@ pip install requests
 pip install pandas
 
 pip install google-api-client
+
+pip install random
+
+pip install werkzeug.utils
+
+**Database**
+
+Before running the Fitly app, we recommend creating a mySQL database called 'fitly_results'. This will be where 
+user login data and workout history will be stored.
 
 **Reccomendations**
 
