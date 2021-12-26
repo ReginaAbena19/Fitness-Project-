@@ -1,11 +1,14 @@
-#testing the user and db connection
+# testing the user and db connection
 from unittest.mock import patch
 import unittest
 from src.website.db.user_db_connection import userAccountDbConnection
 
+
 class connection:
     def execute(self):
         return True
+
+
 class TestUser(unittest.TestCase):
     @patch('src.website.db.user_db_connection.MySQL')
     def test_connect_to_database(self, sql):

@@ -1,12 +1,14 @@
-import re
 from flask import Blueprint, render_template, request, redirect, session, url_for, flash
 from flask_mysqldb import MySQL
-from src.website.profile.retrieve_workout_history import get_workout_history
 from werkzeug.security import generate_password_hash, check_password_hash
 from src.website.db import user_db_connection
 from src.website.users.user import User
 
 auth = Blueprint('auth', __name__)
+
+"""
+This file contains all the routes for the Flask app i.e. sign up, login, logout and profile page
+"""
 
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -36,10 +38,8 @@ def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('email', None)
-
-    #return redirect('/login')
-    # could we have this redirect to the logout page?
     return render_template("logout.html")
+
 
 @auth.route('/profile')
 def profile():
@@ -54,8 +54,6 @@ def profile():
     mysql.connection.commit()
     conn.close()
     return render_template("profile.html", data=data)
-
-
 
 
 @auth.route('/sign-up', methods=["GET", "POST"])

@@ -1,5 +1,9 @@
 from flask_mysqldb import MySQL
 
+"""
+This class creates the connection between the Flask app and database to store the YouTube results. 
+"""
+
 
 class youtubeDbConnection:
 
@@ -33,4 +37,3 @@ class youtubeDbConnection:
         mysql = MySQL()
         mysql.connection.commit()
         print("DONE")
-
