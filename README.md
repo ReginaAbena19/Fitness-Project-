@@ -53,7 +53,7 @@ pip install werkzeug.utils
 **Database**
 
 Before running the Fitly app, we recommend creating a mySQL database called 'fitly_results'. This will be where 
-user login data and workout history will be stored.
+user login data and workout history will be stored. In main.py, add your host, username and password for MySQL. 
 
 **Reccomendations**
 
