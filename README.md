@@ -8,7 +8,7 @@ We are proud to introduce Fitly, a new and innovative fitness workout generator 
 
 **What is Fitly?**
 
-Fitly is a web-based application that recommends a workout for a user based on the user’s target muscle group and whether they want to perform a workout at home or in the gym. Fitly integrates with an API called YouTube Data API to offer a user a repository of over 200 of the top-recommended workout videos hosted on YouTube, in addition to another API called Exercise DB with hundreds of exercises. 
+Fitly is a web-based application that recommends a workout for a user based on the user’s target muscle group and whether they want to perform a workout at home or in the gym. Fitly integrates with an API to offer a user a repository of over 200 of the top-recommended workout videos hosted on YouTube, in addition to another API called Exercise DB with hundreds of exercises. 
 
 
 **Why was Fitly built?**
