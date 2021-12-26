@@ -142,7 +142,7 @@ class YoutubeWorkout:
     def random_video_url_in_db(self, random_workout):
         urls = []
         for item in random_workout:
-            url = ("https://www.youtube.com/watch?v=" + item["id"]["videoId"])
+            url = ("https://www.youtube.com/embed/" + item["id"]["videoId"])
             urls.append(url)
         self.url_to_db(urls)
 
