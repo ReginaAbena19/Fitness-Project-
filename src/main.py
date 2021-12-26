@@ -7,8 +7,8 @@ app.secret_key = os.urandom(12)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'AbenaBenyiwa19' #insert your root password here
-app.config['MYSQL_DB'] = 'Fitly'
+app.config['MYSQL_PASSWORD'] = '<INSERT PASSWORD>' #insert your root password here
+app.config['MYSQL_DB'] = '<INSERT DATABASE NAME>'
 
 mysql = MySQL(app)
 
