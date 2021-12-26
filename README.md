@@ -64,5 +64,5 @@ video thumbnails of videos subject to copyright infringement will not be display
 
 
 **User tutorial**
-
+![output_dJmEqF](https://user-images.githubusercontent.com/88633945/147413922-1791b4f8-1568-4956-a647-3ba96a6f7d11.gif)
 
