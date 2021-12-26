@@ -44,12 +44,13 @@ def logout():
 @auth.route('/profile')
 def profile():
     user_id = session.get('id')
-    get_workout_history(user_id)
     mysql = MySQL()
     conn = mysql.connection.cursor()
+    conn.execute('''CREATE TABLE IF NOT EXISTS youtube_results (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            video_1 VARCHAR(500) NOT NULL, video_2 VARCHAR(500), video_3 VARCHAR(500), userid INT(11) NOT NULL) ''')
+    conn.execute('SELECT * FROM youtube_results WHERE userid = %s', (user_id,))
     conn.execute('SELECT video_1, video_2, video_3 FROM youtube_results WHERE userid = %s', (user_id,))
     data = conn.fetchall()
-    print(data)
     mysql.connection.commit()
     conn.close()
     return render_template("profile.html", data=data)
