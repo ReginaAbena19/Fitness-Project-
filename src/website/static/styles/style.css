@@ -172,6 +172,10 @@
     color: black;
 }
 
+#table {
+    background-color: #fff;
+}
+
 /* styling the profile page */
 
 #dashboard {
