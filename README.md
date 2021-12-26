@@ -64,7 +64,8 @@ video thumbnails of videos subject to copyright infringement will not be display
 
 
 **Fitly Overview**
-<iframe src="https://player.vimeo.com/video/660237473?h=7f14cd2d2e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="640" height="326" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Fitly demo"></iframe>
 
+![5z58og](https://user-images.githubusercontent.com/88633945/147414920-eae6f861-dd34-4e00-b690-69a2730c1bf3.gif)
 
+For a video demo, click here: https://vimeo.com/660237473
 
