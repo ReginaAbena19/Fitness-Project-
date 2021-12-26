@@ -176,12 +176,4 @@
     background-color: #fff;
 }
 
-/* styling the profile page */
 
-#dashboard {
-    background-color: #fff;
-    background-color: rgba(255,255,255,0.25);
-    border-radius: 10px;
-    color: black;
-    text-align: center;
-}
