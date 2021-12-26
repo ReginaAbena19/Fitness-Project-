@@ -1,5 +1,10 @@
 from flask_mysqldb import MySQL
 
+"""
+This class creates the connection between the Flask app and database to store user 
+account information. 
+"""
+
 
 class userAccountDbConnection:
     def __init__(self):

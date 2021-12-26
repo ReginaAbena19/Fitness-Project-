@@ -1,6 +1,4 @@
 import unittest
-import unittest.mock as mock
-import pandas as pd
 from src.website.quiz.written_workout import WrittenWorkout
 
 """

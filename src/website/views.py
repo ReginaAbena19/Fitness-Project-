@@ -6,7 +6,9 @@ from src.website.youtube.youtube_utils import YoutubeWorkout
 
 views = Blueprint('views', __name__)
 
-
+"""
+This file creates the routes for the home page and the results page. 
+"""
 @views.route('/', methods=["POST", "GET"])
 def home():
     if session:

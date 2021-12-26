@@ -1,13 +1,21 @@
 from src.website.db import user_db_connection
-from flask import redirect
 import re
 
+"""
+This class is responsible for checking whether a user exists in the database
+and creating the user if not. 
+"""
 class User:
+    """
+    The class constructor that will initialize all the key variables for the User class
+    """
     def __init__(self, name, email, password):
         self.name = name
         self.email = email
         self.password = password
-
+    """
+    This function connects to the database and creates the user.
+    """
     def create_user(self):
         db = user_db_connection.userAccountDbConnection
         connection = db.connect_to_database()
@@ -24,7 +32,9 @@ class User:
         else:
             return False
 
-
+    """
+    This function checks if a user exists if they attempt sign up. 
+    """
     def check_if_user_exists(self, email, password, user):
         if user:
             print("This email has already been registered.")
@@ -35,7 +45,10 @@ class User:
         else:
             return None
 
-    def create_user_if_not_exists(self,db, connection, name, email, password):
+    """
+    This function inserts the new user to the database. 
+    """
+    def create_user_if_not_exists(self, db, connection, name, email, password):
         db.insert_new_user(connection, self.name, self.email, self.password)
         db.commit_to_database()
         print("New user created successfully.")
